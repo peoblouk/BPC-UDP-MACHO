@@ -11,7 +11,7 @@ int main(void)
 
 	swap_numbers(&x, &y); // Funkci je nutno předat adresy proměnných
 
-	printf("Po vymenou x=%d, y=%d", x, y);
+	printf("Po vymene x=%d, y=%d", x, y);
 
 	return 0;
 }
