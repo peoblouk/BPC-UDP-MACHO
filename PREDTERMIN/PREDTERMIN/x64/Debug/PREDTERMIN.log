@@ -1,0 +1,6 @@
+﻿  main.c
+H:\BPC-AMT(1)\UDP\PREDTERMIN\PREDTERMIN\main.c(34,32): warning C4047: 'function': 'int **' differs in levels of indirection from 'size_t'
+H:\BPC-AMT(1)\UDP\PREDTERMIN\PREDTERMIN\main.c(34,32): warning C4024: 'read_vect': different types for formal and actual parameter 3
+H:\BPC-AMT(1)\UDP\PREDTERMIN\PREDTERMIN\main.c(49,25): warning C4047: 'function': 'int **' differs in levels of indirection from 'int *'
+H:\BPC-AMT(1)\UDP\PREDTERMIN\PREDTERMIN\main.c(49,25): warning C4024: 'print_vect': different types for formal and actual parameter 2
+  PREDTERMIN.vcxproj -> H:\BPC-AMT(1)\UDP\PREDTERMIN\x64\Debug\PREDTERMIN.exe

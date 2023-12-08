@@ -1,0 +1,5 @@
+﻿  main.c
+V:\UDP\CV05-6\CV06-1\CV06-1\main.c(21,14): warning C4244: 'function': conversion from 'double' to 'int', possible loss of data
+V:\UDP\CV05-6\CV06-1\CV06-1\main.c(21,28): warning C4244: 'function': conversion from 'double' to 'int', possible loss of data
+V:\UDP\CV05-6\CV06-1\CV06-1\main.c(21,42): warning C4244: 'function': conversion from 'double' to 'int', possible loss of data
+  CV06-1.vcxproj -> V:\UDP\CV05-6\CV06-1\x64\Debug\CV06-1.exe

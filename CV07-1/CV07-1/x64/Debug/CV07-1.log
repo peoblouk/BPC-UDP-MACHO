@@ -1,0 +1,4 @@
+﻿  main.c
+V:\UDP\CV07-1\CV07-1\main.c(36,10): warning C4047: 'function': 'int' differs in levels of indirection from 'char [2]'
+V:\UDP\CV07-1\CV07-1\main.c(36,10): warning C4024: 'putchar': different types for formal and actual parameter 1
+  CV07-1.vcxproj -> V:\UDP\CV07-1\x64\Debug\CV07-1.exe

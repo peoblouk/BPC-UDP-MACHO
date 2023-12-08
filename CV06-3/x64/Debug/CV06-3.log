@@ -1,0 +1,3 @@
+﻿  main.c
+V:\UDP\CV05-6\CV06-3\CV06-3\main.c(16,17): warning C4020: 'isdigit': too many actual parameters
+  CV06-3.vcxproj -> V:\UDP\CV05-6\CV06-3\x64\Debug\CV06-3.exe

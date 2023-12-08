@@ -1,0 +1,7 @@
+﻿  main.c
+V:\UDP\CV05-3 (stejná jako CV05-2 jen s printf a scanf)\CV05-3\main.c(25,8): warning C4477: 'scanf' : format string '%s' requires an argument of type 'char *', but variadic argument 1 has type 'int'
+V:\UDP\CV05-3 (stejná jako CV05-2 jen s printf a scanf)\CV05-3\main.c(33,9): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 2 has type 'int'
+V:\UDP\CV05-3 (stejná jako CV05-2 jen s printf a scanf)\CV05-3\main.c(33,9): warning C4313: 'printf': '%s' in format string conflicts with argument 2 of type 'int'
+V:\UDP\CV05-3 (stejná jako CV05-2 jen s printf a scanf)\CV05-3\main.c(34,9): warning C4477: 'printf' : format string '%s' requires an argument of type 'char *', but variadic argument 2 has type 'int'
+V:\UDP\CV05-3 (stejná jako CV05-2 jen s printf a scanf)\CV05-3\main.c(34,9): warning C4313: 'printf': '%s' in format string conflicts with argument 2 of type 'int'
+V:\UDP\CV05-3 (stejná jako CV05-2 jen s printf a scanf)\CV05-3\main.c(25): error C4700: uninitialized local variable 'jednotka' used
