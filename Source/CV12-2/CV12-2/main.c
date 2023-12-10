@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+ï»¿#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h> // pro funkce malloc(), free()
 #include "check.h"// kontrola po alokaci 
@@ -9,40 +9,40 @@ struct TData
 	size_t iNum;
 };
 
-int data_read(FILE* aFile, struct TData* aPtrData); // Funkce na ètení vstupních dat
-int data_write(FILE* aFile, const struct TData aData); // Funkce na zápis dat do souboru
+int data_read(FILE* aFile, struct TData* aPtrData); // Funkce na ï¿½tenï¿½ vstupnï¿½ch dat
+int data_write(FILE* aFile, const struct TData aData); // Funkce na zï¿½pis dat do souboru
 
-int data_minmax(const struct TData aData, double* aPtrMin, double* aPtrMax); // Funkce na nalezení minima a maxima
-int data_minmax_write(FILE* aFile, double aMin, double aMax); // Funkce na tisk minima a maxima na rùzné výstupy
-void data_destroy(struct TData* aPtrData); // Funkce na vymazání promìnných a alokaci
+int data_minmax(const struct TData aData, double* aPtrMin, double* aPtrMax); // Funkce na nalezenï¿½ minima a maxima
+int data_minmax_write(FILE* aFile, double aMin, double aMax); // Funkce na tisk minima a maxima na rï¿½znï¿½ vï¿½stupy
+void data_destroy(struct TData* aPtrData); // Funkce na vymazï¿½nï¿½ promï¿½nnï¿½ch a alokaci
 
-// V záložce properties>debugging>command argumnets //! jsme zadali cv11-1.exe vstup.txt vystup.txt 
+// V zï¿½loï¿½ce properties>debugging>command argumnets //! jsme zadali cv11-1.exe vstup.txt vystup.txt 
 /* Main */					
-int main(int argc, char* argv[]) // argc a argv je prostì dané!
+int main(int argc, char* argv[]) // argc a argv je prostï¿½ danï¿½!
 {
 
-	/// Práce s vstupními argumenty /// 
-	if (argc < 2) // kontrola poètu otevøených souborù (streamù)
+	/// Prï¿½ce s vstupnï¿½mi argumenty /// 
+	if (argc < 2) // kontrola poï¿½tu otevï¿½enï¿½ch souborï¿½ (streamï¿½)
 	{
 		fprintf(stderr, "Chyba - nebylo zadano jmeno vstupniho a vystupniho souboru");
 		return 1;
 	}
 
-	/// Práce s vstupním souborem vstup.txt /// 
-	FILE* fr = fopen(argv[1], "r"); // otevøu soubor z pole argumentù argv[1] , 1 znaèí vstupního soubor, výstupní soubor by byl argv[2]
-	if (fr == NULL) // oveøení zda se otevøelo 
+	/// Prï¿½ce s vstupnï¿½m souborem vstup.txt /// 
+	FILE* fr = fopen(argv[1], "r"); // otevï¿½u soubor z pole argumentï¿½ argv[1] , 1 znaï¿½ï¿½ vstupnï¿½ho soubor, vï¿½stupnï¿½ soubor by byl argv[2]
+	if (fr == NULL) // oveï¿½enï¿½ zda se otevï¿½elo 
 	{
-		fprintf(stderr, "Chyba pri otevirani vstupniho souboru!\n"); // stderr chybový stream
+		fprintf(stderr, "Chyba pri otevirani vstupniho souboru!\n"); // stderr chybovï¿½ stream
 		return 2;
 	}
 
-	/// Práce s dynamicky alokovaným polem /// 
-	struct TData data = { 0,0 }; // Promìnná pro uložení 
+	/// Prï¿½ce s dynamicky alokovanï¿½m polem /// 
+	struct TData data = { 0,0 }; // Promï¿½nnï¿½ pro uloï¿½enï¿½ 
 
-	// Náhrada oproti CV11-3
-	if(data_read(fr, &data) < 0) // Pøedám funkci file stream a adresu na promìnnou data, jelikož funkce parametr funkce je pointer
+	// Nï¿½hrada oproti CV11-3
+	if(data_read(fr, &data) < 0) // Pï¿½edï¿½m funkci file stream a adresu na promï¿½nnou data, jelikoï¿½ funkce parametr funkce je pointer
 	{
-		fprintf(stderr, "Chyba pri otevirani vstupniho souboru!\n"); // stderr chybový stream
+		fprintf(stderr, "Chyba pri otevirani vstupniho souboru!\n"); // stderr chybovï¿½ stream
 		data_destroy(&data);
 		fclose(fr);
 	}
@@ -50,7 +50,7 @@ int main(int argc, char* argv[]) // argc a argv je prostì dané!
 	fclose(fr);
 
 	
-	double min, max; // pomocné promìnné
+	double min, max; // pomocnï¿½ promï¿½nnï¿½
 	if (data_minmax(data, &min, &max) < 0)
 	{
 		return 4;
@@ -59,7 +59,7 @@ int main(int argc, char* argv[]) // argc a argv je prostì dané!
 	data_minmax_write(stdout, min, max); // tisk na obrazovku
 	
 
-	FILE* fw = fopen(argv[2], "w"); // Otevøení výstupního souboru
+	FILE* fw = fopen(argv[2], "w"); // Otevï¿½enï¿½ vï¿½stupnï¿½ho souboru
 	if (fw == NULL)
 	{
 		fprintf(stderr, "Chyba pri otevirani vystupniho souboru!\n");
@@ -72,7 +72,7 @@ int main(int argc, char* argv[]) // argc a argv je prostì dané!
 		fclose(fw);
 		return 6;
 	}
-	fclose(fw); // Uzavøení výstupního souboru
+	fclose(fw); // Uzavï¿½enï¿½ vï¿½stupnï¿½ho souboru
 
 	return 0;
 }
@@ -82,55 +82,54 @@ int data_read(FILE* aFile, struct TData* aPtrData)
 	if(aFile == NULL || aPtrData == NULL)
 	{
 		fprintf(stderr, "Chyba pri otevirani vystupniho souboru!\n");
-		printf("Špatnì pri cteni dat ze souboru");
+		printf("ï¿½patnï¿½ pri cteni dat ze souboru");
 		return -1;
 	}
 
-		// K prvku struktury pøes ukazatel musím použít ->
-	if (fscanf(aFile, "%zu", &aPtrData->iNum) != 1) // Ètení poètu dat (na prvním øádku souboru vstup.txt je èíslo, které udává poèet)
+		// K prvku struktury pï¿½es ukazatel musï¿½m pouï¿½ï¿½t ->
+	if (fscanf(aFile, "%zu", &aPtrData->iNum) != 1) // ï¿½tenï¿½ poï¿½tu dat (na prvnï¿½m ï¿½ï¿½dku souboru vstup.txt je ï¿½ï¿½slo, kterï¿½ udï¿½vï¿½ poï¿½et)
 	{
 		// fprintf(stderr, "Chyba pri cteni poctu dat!\n");
 		return -1;
 	}
 
-	aPtrData->iPtr = malloc(aPtrData->iNum * sizeof(double)); // Alokace pole pøes ukazatel
-	if (aPtrData->iPtr == NULL) // Oveøení zda opravdu místo bylo alokováno
+	aPtrData->iPtr = malloc(aPtrData->iNum * sizeof(double)); // Alokace pole pï¿½es ukazatel
+	if (aPtrData->iPtr == NULL) // Oveï¿½enï¿½ zda opravdu mï¿½sto bylo alokovï¿½no
 	{
 		// printf("Chyba alokace!");
 		return -1;
 	}
 
 	for (size_t i = 0; i < aPtrData->iNum; i++) {
-		if (fscanf(aFile, "%lf", &aPtrData->iPtr[i]) != 1) // Ètení pole od uživatele
+		if (fscanf(aFile, "%lf", &aPtrData->iPtr[i]) != 1) // ï¿½tenï¿½ pole od uï¿½ivatele
 		{
-			free(aPtrData->iPtr); // Ukonèení alokace, má smysl uvolnit jen pamì, která alokována
-			// fprintf(stderr, "Chyba alokace!\n"); // Tisk do streamu souborù
-			// fclose(fr); // Ukonèit ètení souboru
-			aPtrData->iPtr = NULL; // Aby adresa nebyl zabraná
+			free(aPtrData->iPtr); // Ukonï¿½enï¿½ alokace, mï¿½ smysl uvolnit jen pamï¿½, kterï¿½ alokovï¿½na
+			// fprintf(stderr, "Chyba alokace!\n"); // Tisk do streamu souborï¿½
+			// fclose(fr); // Ukonï¿½it ï¿½tenï¿½ souboru
+			aPtrData->iPtr = NULL; // Aby adresa nebyl zabranï¿½
 			aPtrData->iNum = 0;
 			return -1;
 		}
 	}
 
-
 	return 0;
 }
 
-int data_write(FILE* aFile, const struct TData aData) // Zápis dat
+int data_write(FILE* aFile, const struct TData aData) // Zï¿½pis dat
 {
 	if (aFile == NULL || aData.iPtr == NULL)
 	{
 		return -1;
 	}
 
-	for (size_t i = 0; i < aData.iNum; i++) // Kontrola ètení
+	for (size_t i = 0; i < aData.iNum; i++) // Kontrola ï¿½tenï¿½
 	{
 		if (fprintf(aFile, "%lf", aData.iPtr[i]) < 0)
 		{
 			return -1;
 		}
 	}
-	if(fprintf(aFile, "\n") < 0) // Odøádkování
+	if(fprintf(aFile, "\n") < 0) // Odï¿½ï¿½dkovï¿½nï¿½
 	{
 		return -1;
 	}
@@ -138,17 +137,17 @@ int data_write(FILE* aFile, const struct TData aData) // Zápis dat
 	return 0;
 }
 
-int data_minmax(const struct TData aData, double* aPtrMin, double* aPtrMax) // Funkce pro hledání minima a maxima v datech
+int data_minmax(const struct TData aData, double* aPtrMin, double* aPtrMax) // Funkce pro hledï¿½nï¿½ minima a maxima v datech
 {
-	/// Zpracování vstupních dat funkce /// 
+	/// Zpracovï¿½nï¿½ vstupnï¿½ch dat funkce /// 
 	if (aData.iPtr == NULL || aPtrMin == NULL || aPtrMax == NULL || aData.iNum == 0) // Kontrola
 	{
 		return -1;
 	}
 	*aPtrMin = *aPtrMax = aData.iPtr[0]; // zpracovani prvniho prvku
 
-	/// Algoritmus pro hledání mininmální a maximální hodnoty /// 
-	for (size_t i = 0; i < aData.iNum; i++) // vyhledávání min a max (algoritmus)
+	/// Algoritmus pro hledï¿½nï¿½ mininmï¿½lnï¿½ a maximï¿½lnï¿½ hodnoty /// 
+	for (size_t i = 0; i < aData.iNum; i++) // vyhledï¿½vï¿½nï¿½ min a max (algoritmus)
 	{
 		if (aData.iPtr[i] > *aPtrMax)
 			*aPtrMax = aData.iPtr[i];
@@ -171,7 +170,7 @@ int data_minmax_write(FILE* aFile, double aMin, double aMax)
 		return -1;
 	}
 
-	if (fprintf(aFile, "min = % lf max = % lf\n", aMin, aMax) < 0) // zapiš na zvolený výstup informaci o min, max
+	if (fprintf(aFile, "min = % lf max = % lf\n", aMin, aMax) < 0) // zapiï¿½ na zvolenï¿½ vï¿½stup informaci o min, max
 	{
 		return -1;
 	}
