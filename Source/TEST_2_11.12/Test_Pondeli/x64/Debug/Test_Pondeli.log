@@ -1,0 +1,6 @@
+﻿  main.c
+C:\Users\petao\Desktop\test_c_2\Test_Pondeli\Test_Pondeli\main.c(38,22): warning C4047: 'function': 'size_t *' differs in levels of indirection from 'size_t (*)[10]'
+C:\Users\petao\Desktop\test_c_2\Test_Pondeli\Test_Pondeli\main.c(38,22): warning C4024: 'data_stat': different types for formal and actual parameter 2
+C:\Users\petao\Desktop\test_c_2\Test_Pondeli\Test_Pondeli\main.c(79,16): warning C4047: '=': 'size_t' differs in levels of indirection from 'void *'
+C:\Users\petao\Desktop\test_c_2\Test_Pondeli\Test_Pondeli\main.c(96,8): warning C4047: 'initializing': 'char *' differs in levels of indirection from 'char (*)[11]'
+  Test_Pondeli.vcxproj -> C:\Users\petao\Desktop\test_c_2\Test_Pondeli\x64\Debug\Test_Pondeli.exe
